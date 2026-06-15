@@ -33,30 +33,30 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Üst Banner - Büyük Emoji Logoları */
+        /* En Üst Banner - İstediğin İki Büyük Özel Logo */
         .header-banner {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
-            padding: 25px;
+            gap: 30px;
+            padding: 20px;
             background-color: #181818;
             border-bottom: 1px solid var(--play-border);
             flex-wrap: wrap;
         }
 
-        .header-logo-emoji {
-            font-size: 50px; /* Büyük logo emojisi */
-            width: 90px;
-            height: 90px;
-            background-color: var(--play-card);
-            border-radius: 20px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-            border: 1px solid var(--play-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            user-select: none;
+        .header-logo-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            border: 2px solid var(--play-border);
+            transition: transform 0.2s ease;
+        }
+
+        .header-logo-img:hover {
+            transform: scale(1.05);
         }
 
         .search-bar-mock {
@@ -93,8 +93,8 @@
 
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 22px;
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
@@ -114,22 +114,22 @@
             transform: scale(0.96);
         }
 
-        /* Oyun Kartı İçi Büyük Emoji Alanı */
+        /* Oyun Kartı İçi Görsel Alanı */
         .app-icon-container {
             width: 100%;
             aspect-ratio: 1/1;
             background-color: var(--play-card);
             border-radius: 22%;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
             margin-bottom: 10px;
             border: 1px solid rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 55px; /* Emojilerin net görünmesi için büyük boyut */
-            user-select: none;
-            background: linear-gradient(145deg, #333333, #252525); /* Derinlik için hafif gradyan */
+        }
+
+        .app-icon-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .app-title {
@@ -166,6 +166,11 @@
             width: 100%;
             cursor: pointer;
             text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .app-card:hover .install-btn {
+            background-color: var(--play-green-hover);
         }
 
         #game-overlay {
@@ -212,6 +217,7 @@
             background-color: #000;
         }
 
+        /* Müzik Widget Alanı */
         .music-widget {
             position: fixed;
             bottom: 20px;
@@ -245,17 +251,14 @@
 
         @media (max-width: 480px) {
             .apps-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 14px;
+                grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+                gap: 16px;
                 padding: 0 12px;
             }
-            .header-logo-emoji {
-                font-size: 38px;
-                width: 70px;
-                height: 70px;
-            }
-            .app-icon-container {
-                font-size: 45px;
+            .header-logo-img {
+                width: 90px;
+                height: 90px;
+                border-radius: 18px;
             }
         }
     </style>
@@ -267,8 +270,8 @@
     </audio>
 
     <header class="header-banner">
-        <div class="header-logo-emoji">🎮</div>
-        <div class="header-logo-emoji">👽</div>
+        <img class="header-logo-img" src="input_file_0.png" alt="Technowizard Software Engineering Logo">
+        <img class="header-logo-img" src="input_file_1.png" alt="Frawn Logo">
     </header>
 
     <div class="search-bar-mock">🔍 Oyun ve uygulama arayın...</div>
@@ -281,7 +284,9 @@
     <main class="apps-grid">
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17', 'Art of Escape 1')">
-            <div class="app-icon-container">🏃‍♂️</div>
+            <div class="app-icon-container">
+                <img src="input_file_2.png" alt="Art of Escape 1">
+            </div>
             <div class="app-details">
                 <div class="app-title">Art of Escape 1</div>
                 <div class="app-rating"><span>★</span> 4.9</div>
@@ -290,7 +295,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4', 'Neon Racer')">
-            <div class="app-icon-container">🏎️</div>
+            <div class="app-icon-container">
+                <img src="input_file_3.png" alt="Neon Racer">
+            </div>
             <div class="app-details">
                 <div class="app-title">Neon Racer</div>
                 <div class="app-rating"><span>★</span> 4.8</div>
@@ -299,7 +306,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71', 'BALL TO HOLD')">
-            <div class="app-icon-container">⚽</div>
+            <div class="app-icon-container">
+                <img src="input_file_4.png" alt="BALL TO HOLD">
+            </div>
             <div class="app-details">
                 <div class="app-title">BALL TO HOLD</div>
                 <div class="app-rating"><span>★</span> 4.7</div>
@@ -308,7 +317,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl', 'Kaçış Oyunu')">
-            <div class="app-icon-container">🔐</div>
+            <div class="app-icon-container">
+                <img src="input_file_5.png" alt="Kaçış Oyunu">
+            </div>
             <div class="app-details">
                 <div class="app-title">Kaçış Oyunu</div>
                 <div class="app-rating"><span>★</span> 4.6</div>
@@ -317,7 +328,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx', 'Neon Dino')">
-            <div class="app-icon-container">🦖</div>
+            <div class="app-icon-container">
+                <img src="input_file_6.png" alt="Neon Dino">
+            </div>
             <div class="app-details">
                 <div class="app-title">Neon Dino</div>
                 <div class="app-rating"><span>★</span> 4.8</div>
@@ -326,7 +339,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4', 'RED BALL')">
-            <div class="app-icon-container">🔴</div>
+            <div class="app-icon-container">
+                <img src="input_file_7.png" alt="RED BALL">
+            </div>
             <div class="app-details">
                 <div class="app-title">RED BALL</div>
                 <div class="app-rating"><span>★</span> 4.9</div>
@@ -335,7 +350,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP', 'Sepeti Yakala')">
-            <div class="app-icon-container">🧺</div>
+            <div class="app-icon-container">
+                <img src="input_file_8.png" alt="Sepeti Yakala">
+            </div>
             <div class="app-details">
                 <div class="app-title">Sepeti Yakala</div>
                 <div class="app-rating"><span>★</span> 4.6</div>
@@ -344,7 +361,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/pDgsw-U2s', 'Flappy Forest')">
-            <div class="app-icon-container">🌲</div>
+            <div class="app-icon-container">
+                <img src="input_file_9.png" alt="Flappy Forest">
+            </div>
             <div class="app-details">
                 <div class="app-title">Flappy Forest</div>
                 <div class="app-rating"><span>★</span> 4.7</div>
@@ -353,7 +372,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/GG6iHi5Ar', 'Tıklama Yarışı')">
-            <div class="app-icon-container">👆</div>
+            <div class="app-icon-container">
+                <img src="input_file_10.png" alt="Tıklama Yarışı">
+            </div>
             <div class="app-details">
                 <div class="app-title">Tıklama Yarışı</div>
                 <div class="app-rating"><span>★</span> 4.5</div>
@@ -362,7 +383,9 @@
         </div>
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/9vuYB_6U-', 'Uzay Savaşı')">
-            <div class="app-icon-container">🛸</div>
+            <div class="app-icon-container">
+                <img src="input_file_11.png" alt="Uzay Savaşı">
+            </div>
             <div class="app-details">
                 <div class="app-title">Uzay Savaşı</div>
                 <div class="app-rating"><span>★</span> 4.9</div>
@@ -373,8 +396,8 @@
     </main>
 
     <div class="music-widget">
-        <span class="music-info">🎵 Mağaza Müziği</span>
-        <button class="music-ctrl-btn" id="music-btn" onclick="controlMusic()">AÇ</button>
+        <span class="music-info">🎵 Arka Plan Müziği</span>
+        <button class="music-ctrl-btn" id="music-btn" onclick="controlMusic()">MÜZİĞİ AÇ</button>
     </div>
 
     <div id="game-overlay">
@@ -391,13 +414,15 @@
 
         function controlMusic() {
             if (backgroundAudio.paused) {
-                backgroundAudio.play().catch(err => console.log("Etkileşim gerekiyor."));
-                musicButton.innerText = "KAPAT";
+                backgroundAudio.play().catch(err => {
+                    console.log("Müzik oynatılamadı, tarayıcı etkileşim bekliyor: ", err);
+                });
+                musicButton.innerText = "MÜZİĞİ KAPAT";
                 musicButton.style.backgroundColor = "#e32636";
                 musicButton.style.color = "#fff";
             } else {
                 backgroundAudio.pause();
-                musicButton.innerText = "AÇ";
+                musicButton.innerText = "MÜZİĞİ AÇ";
                 musicButton.style.backgroundColor = "var(--play-green)";
                 musicButton.style.color = "#000";
             }
