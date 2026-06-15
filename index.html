@@ -33,7 +33,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* En Üst Logo Alanı */
+        /* En Üst Logo Alanı - İki Yeni Ana Logo */
         .header-banner {
             display: flex;
             justify-content: center;
@@ -46,15 +46,15 @@
         }
 
         .header-banner img {
-            height: 85px;
-            max-width: 160px;
+            height: 90px;
+            max-width: 180px;
             object-fit: contain;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.4);
             border: 1px solid var(--play-border);
         }
 
-        /* Play Store Arama Çubuğu Görünümü (Görsel Amaçlı) */
+        /* Play Store Arama Çubuğu */
         .search-bar-mock {
             max-width: 600px;
             margin: 20px auto;
@@ -69,7 +69,7 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
-        /* Mağaza Sekme Başlığı */
+        /* Başlık Alanı */
         .store-section-title {
             max-width: 1000px;
             margin: 25px auto 10px auto;
@@ -88,7 +88,7 @@
             font-weight: 700;
         }
 
-        /* Play Store Grid Yapısı */
+        /* Grid Sistemi */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
@@ -98,7 +98,7 @@
             padding: 0 20px;
         }
 
-        /* Play Store Uygulama Kartı Tasarımı */
+        /* Uygulama Kartı Tasarımı */
         .app-card {
             background: none;
             display: flex;
@@ -113,12 +113,12 @@
             transform: scale(0.96);
         }
 
-        /* Tam Play Store Köşeli/Yuvarlatılmış İkon Yapısı */
+        /* Standart Play Store İkon Yapısı */
         .app-icon-container {
             width: 100%;
             aspect-ratio: 1/1;
             background-color: var(--play-card);
-            border-radius: 20%; /* Play Store standart ikon yuvarlaklığı */
+            border-radius: 22%; /* Play Store ikon standardı */
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             margin-bottom: 10px;
@@ -179,7 +179,7 @@
             background-color: var(--play-green-hover);
         }
 
-        /* Gelişmiş Tam Ekran Oyun Penceresi (Overlay) */
+        /* Tam Ekran Oyun Overlay Sistemi */
         #game-overlay {
             display: none;
             position: fixed;
@@ -225,7 +225,7 @@
             background-color: #000;
         }
 
-        /* Sabit Alt Müzik Çalar Widget'ı */
+        /* Sabit Alt Müzik Çalar Paneli */
         .music-widget {
             position: fixed;
             bottom: 20px;
@@ -258,7 +258,7 @@
             cursor: pointer;
         }
 
-        /* Mobil Cihazlar İçin Kusursuz Ekran Ayarı */
+        /* Mobil Duyarlılık Ayarları */
         @media (max-width: 480px) {
             .apps-grid {
                 grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -266,7 +266,7 @@
                 padding: 0 12px;
             }
             .header-banner img {
-                height: 60px;
+                height: 65px;
             }
             .app-title {
                 font-size: 13px;
@@ -281,8 +281,8 @@
     </audio>
 
     <header class="header-banner">
-        <img src="FRAWN_20260508_224014_0000.png" alt="Frawn Logo">
-        <img src="WhatsApp Image 2026-06-15 at 14.47.55.jpeg" alt="Xeltrixgo Logo">
+        <img src="technowizard_logo.png" alt="Technowizard Software Engineering">
+        <img src="frawn_logo.png" alt="Frawn Growth Logo">
     </header>
 
     <div class="search-bar-mock">
@@ -291,7 +291,7 @@
 
     <div class="store-section-title">
         <div>Önerilen Oyunlar</div>
-        <div class="store-subtitle">MOBİL UYUMLU</div>
+        <div class="store-subtitle">%100 MOBİL UYUMLU</div>
     </div>
 
     <main class="apps-grid">
@@ -422,13 +422,13 @@
     </div>
 
     <script>
-        // Müzik Kontrol Fonksiyonları
+        // Müzik Oynatma ve Yönetme Mantığı
         const backgroundAudio = document.getElementById('store-bg-music');
         const musicButton = document.getElementById('music-btn');
 
         function controlMusic() {
             if (backgroundAudio.paused) {
-                backgroundAudio.play().catch(err => console.log("Etkileşim gerekiyor."));
+                backgroundAudio.play().catch(err => console.log("İlk dokunuş gerekiyor."));
                 musicButton.innerText = "KAPAT";
                 musicButton.style.backgroundColor = "#e32636";
                 musicButton.style.color = "#fff";
@@ -440,7 +440,7 @@
             }
         }
 
-        // Oyun Başlatma/Kapatma Sistemi (Iframe İçi)
+        // Oyun Katmanı (Iframe) Açma / Kapatma İşlemleri
         function launchGame(link, title) {
             document.getElementById('current-game-title').innerText = title;
             document.getElementById('game-frame').src = link;
