@@ -1,382 +1,344 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frawn & Xeltrixgo Games</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
-<title>Frawn & Xeltrixgo Games</title>
+    <style>
+        :root {
+            --orange: #ff6b35;
+            --orange-dark: #e04e1d;
+            --bg: #f9f6f0;
+            --card: #fff;
+            --text: #2b2d42;
+            --muted: #6c757d;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+        body {
+            background: var(--bg);
+            color: var(--text);
+            padding-bottom: 60px;
+        }
 
-<style>
-:root{
-    --orange:#ff6b35;
-    --orange-dark:#e04e1d;
-    --bg:#f9f6f0;
-    --card:#fff;
-    --text:#2b2d42;
-    --muted:#6c757d;
-}
+        header {
+            background: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--orange);
+            box-shadow: 0 4px 12px rgba(0,0,0,.05);
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Plus Jakarta Sans',sans-serif;
-}
+        .logo-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
 
-body{
-    background:var(--bg);
-    color:var(--text);
-    padding-bottom:60px;
-}
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--orange);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
 
-header{
-    background:#fff;
-    padding:20px;
-    text-align:center;
-    border-bottom:3px solid var(--orange);
-    box-shadow:0 4px 12px rgba(0,0,0,.05);
-}
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--orange);
+            font-size: 30px;
+        }
 
-.logo-row{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-bottom:15px;
-}
+        header p {
+            color: var(--muted);
+            margin-top: 5px;
+        }
 
-.logo{
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    background:var(--orange);
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:32px;
-    font-weight:bold;
-}
+        .control-panel {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
+            display: flex;
+            gap: 10px;
+        }
 
-h1{
-    font-family:'Fredoka',sans-serif;
-    color:var(--orange);
-    font-size:30px;
-}
+        .btn {
+            flex: 1;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 600;
+            background: var(--orange);
+        }
 
-header p{
-    color:var(--muted);
-    margin-top:5px;
-}
+        .btn-music {
+            background: #4a4e69;
+        }
 
-.control-panel{
-    max-width:600px;
-    margin:20px auto;
-    padding:0 15px;
-    display:flex;
-    gap:10px;
-}
+        .games-list {
+            max-width: 600px;
+            margin: auto;
+            padding: 0 15px;
+        }
 
-.btn{
-    flex:1;
-    border:none;
-    border-radius:25px;
-    padding:12px;
-    cursor:pointer;
-    color:#fff;
-    font-weight:600;
-    background:var(--orange);
-}
+        .game-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            margin-bottom: 15px;
+            background: #fff;
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,.05);
+        }
 
-.btn-music{
-    background:#4a4e69;
-}
+        .game-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffe6dc;
+            font-size: 28px;
+        }
 
-.games-list{
-    max-width:600px;
-    margin:auto;
-    padding:0 15px;
-}
+        .game-info {
+            flex: 1;
+        }
 
-.game-card{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:16px;
-    margin-bottom:15px;
-    background:#fff;
-    border-radius:16px;
-    text-decoration:none;
-    color:inherit;
-    box-shadow:0 2px 8px rgba(0,0,0,.05);
-}
+        .game-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
 
-.game-icon{
-    width:65px;
-    height:65px;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#ffe6dc;
-    font-size:28px;
-}
+        .game-meta {
+            color: var(--muted);
+            font-size: 12px;
+        }
 
-.game-info{
-    flex:1;
-}
+        .badge {
+            background: #4caf50;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 6px;
+        }
 
-.game-title{
-    font-weight:700;
-    margin-bottom:4px;
-}
+        .arrow {
+            color: var(--orange);
+            font-size: 20px;
+        }
 
-.game-meta{
-    color:var(--muted);
-    font-size:12px;
-}
+        .feedback {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 0 15px;
+        }
 
-.badge{
-    background:#4caf50;
-    color:#fff;
-    padding:2px 6px;
-    border-radius:4px;
-    margin-right:6px;
-}
+        .feedback-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 16px;
+        }
 
-.arrow{
-    color:var(--orange);
-    font-size:20px;
-}
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            resize: none;
+        }
 
-.feedback{
-    max-width:600px;
-    margin:30px auto;
-    padding:0 15px;
-}
+        footer {
+            text-align: center;
+            padding: 20px 15px;
+            margin-top: 30px;
+        }
 
-.feedback-box{
-    background:#fff;
-    padding:20px;
-    border-radius:16px;
-}
+        .social-links {
+            display: flex;
+            flex-direction: column; /* Linkleri alt alta dizer */
+            align-items: center;    /* Linkleri yatayda ortalar */
+            gap: 12px;              /* Aralarındaki boşluk */
+            margin-bottom: 15px;
+        }
 
-textarea{
-    width:100%;
-    height:80px;
-    padding:10px;
-    margin:10px 0;
-    border-radius:8px;
-    border:1px solid #ddd;
-    resize:none;
-}
+        .social-links a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
 
-footer{<div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:12px;">
+        .social-links a:hover {
+            color: var(--orange-dark);
+        }
 
-    <a href="https://www.instagram.com/frawn_logo?igsh=MTV3dnBnd2RzcDNiZg=="
-       target="_blank"
-       style="color:#FF6B35; text-decoration:none; font-weight:600;">
-       📸 Frawn_Logo
-    </a>
+        #game-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.9);
+            z-index: 9999;
+            flex-direction: column;
+        }
 
-    <a href="https://www.instagram.com/xeltrixgo?igsh=MWN2ZHpraHpkOXVpYQ=="
-       target="_blank"
-       style="color:#FF6B35; text-decoration:none; font-weight:600;">
-       📸 Xeltrixgo
-    </a>
+        #game-frame {
+            flex: 1;
+            border: none;
+        }
 
-</div>
-}
-
-footer a{
-    color:var(--orange);
-    text-decoration:none;
-}
-
-#game-overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.9);
-    z-index:9999;
-    flex-direction:column;
-}
-
-#game-frame{
-    flex:1;
-    border:none;
-}
-
-.close-btn{
-    border:none;
-    background:var(--orange);
-    color:#fff;
-    padding:15px;
-    font-size:16px;
-    cursor:pointer;
-}
-</style>
+        .close-btn {
+            border: none;
+            background: var(--orange);
+            color: #fff;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
 
-<audio id="bg-music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f4c4f6db.mp3?filename=retro-game-music-loop-91453.mp3" type="audio/mpeg">
-</audio>
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8f4c4f6db.mp3?filename=retro-game-music-loop-91453.mp3" type="audio/mpeg">
+    </audio>
 
-<header>
+    <header>
+        <div class="logo-row">
+            <div class="logo">F</div>
+            <div class="logo">X</div>
+        </div>
+        <h1>Frawn & Xeltrixgo Games</h1>
+        <p>Play Store Tarzı Mobil Uyumlu Oyun Portalı</p>
+    </header>
 
-<div class="logo-row">
-    <div class="logo">F</div>
-    <div class="logo">X</div>
-</div>
-
-<h1>Frawn & Xeltrixgo Games</h1>
-<p>Play Store Tarzı Mobil Uyumlu Oyun Portalı</p>
-
-</header>
-
-<div class="control-panel">
-    <button class="btn btn-music" id="music-btn" onclick="toggleMusic()">🎵 Müziği Aç</button>
-    <button class="btn" onclick="playRandomGame()">🎲 Rastgele Oyun</button>
-</div>
-
-<main class="games-list" id="games-list"></main>
-
-<section class="feedback">
-    <div class="feedback-box">
-        <h3>⚠️ Şikayet & Hata Bildirimi</h3>
-
-        <textarea placeholder="Görüşlerini yaz..."></textarea>
-
-        <button class="btn" onclick="alert('Geri bildirimin alındı!')">
-            Gönder
-        </button>
+    <div class="control-panel">
+        <button class="btn btn-music" id="music-btn" onclick="toggleMusic()">🎵 Müziği Aç</button>
+        <button class="btn" onclick="playRandomGame()">🎲 Rastgele Oyun</button>
     </div>
-</section>
 
-<footer>
-    <p>
-        <a href="https://instagram.com/frawn_xeltrixgo" target="_blank">
-            📸 Frawn_Xeltrixgo Instagram
-        </a>
-    </p>
+    <main class="games-list" id="games-list"></main>
 
-    <br>
+    <section class="feedback">
+        <div class="feedback-box">
+            <h3>⚠️ Şikayet & Hata Bildirimi</h3>
+            <textarea placeholder="Görüşlerini yaz..."></textarea>
+            <button class="btn" onclick="alert('Görüşlerin alındı!')">Gönder</button>
+        </div>
+    </section>
 
-    <p>© 2026 Frawn & Xeltrixgo</p>
-</footer>
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/frawn_logo?igsh=MTV3dnBnd2RzcDNiZg==" target="_blank">
+                📸 frawn logo
+            </a>
+            <a href="https://www.instagram.com/xeltrixgo?igsh=MWN2ZHpraHpkOXVpYQ==" target="_blank">
+                📸 xeltrixgo
+            </a>
+        </div>
+        <p>© 2026 Frawn & Xeltrixgo - Tüm Hakları Saklıdır.</p>
+        <p style="font-size:10px; margin-top:5px; color:#BBB;">
+            Gizli Sürpriz Yumurta: Mobilde her şey daha akıcı!
+        </p>
+    </footer>
 
-<div id="game-overlay">
-    <button class="close-btn" onclick="closeGame()">❌ Oyundan Çık</button>
-    <iframe id="game-frame"></iframe>
-</div>
+    <div id="game-overlay">
+        <button class="close-btn" onclick="closeGame()">❌ Oyundan Çık</button>
+        <iframe id="game-frame" src=""></iframe>
+    </div>
 
-<script>
-const games = [
-    {title:"Art of Escape 1", icon:"🏃", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17", rating:"4.7"},
-    {title:"Neon Racer", icon:"🏎️", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4", rating:"4.8"},
-    {title:"Ball To Hold", icon:"⚽", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71", rating:"4.5"},
-    {title:"Undertale Clone", icon:"❤️", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/l7Tvi76J1", rating:"5.0"},
-    {title:"Zindandan Kaçış", icon:"🗝️", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0", rating:"4.6"},
-    {title:"Şeker Oyunu", icon:"🍬", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl", rating:"4.4"},
-    {title:"Kaçış Oyunu", icon:"🚪", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx", rating:"4.6"},
-    {title:"Neon Dino", icon:"🦖", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4", rating:"4.7"},
-    {title:"Red Ball", icon:"🔴", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP", rating:"4.9"},
-    {title:"Flappy Forest", icon:"🌲", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/pDgsw-U2s", rating:"4.8"},
-    {title:"Tıklama Yarışı", icon:"👆", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/GG6iHi5Ar", rating:"4.7"},
-    {title:"Uzay Savaşı", icon:"🚀", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/9vuYB_6U", rating:"4.9"}
-];
+    <script>
+        const games = [
+            {title:"Art of Escape 1", icon:"🏃", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17", rating:"4.7"},
+            {title:"Neon Racer", icon:"🏎️", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4", rating:"4.8"},
+            {title:"Ball To Hold", icon:"⚽", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71", rating:"4.5"},
+            {title:"Undertale Clone", icon:"❤️", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/l7Tvi76J1", rating:"5.0"},
+            {title:"Zindandan Kaçış", icon:"🗝️", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0", rating:"4.6"},
+            {title:"Şeker Oyunu", icon:"🍬", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl", rating:"4.4"},
+            {title:"Kaçış Oyunu", icon:"🚪", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx", rating:"4.6"},
+            {title:"Neon Dino", icon:"🦖", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4", rating:"4.7"},
+            {title:"Red Ball", icon:"🔴", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP", rating:"4.9"},
+            {title:"Flappy Forest", icon:"🌲", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/pDgsw-U2s", rating:"4.8"},
+            {title:"Tıklama Yarışı", icon:"👆", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/GG6iHi5Ar", rating:"4.7"},
+            {title:"Uzay Savaşı", icon:"🚀", url:"https://editor.p5js.org/frawn_xeltrixgo123/full/9vuYB_6U", rating:"4.9"}
+        ];
 
-const container = document.getElementById("games-list");
+        const container = document.getElementById("games-list");
 
-games.forEach(game => {
-    container.innerHTML += `
-        <a class="game-card" href="#" onclick="openGame('${game.url}')">
-            <div class="game-icon">${game.icon}</div>
+        games.forEach(game => {
+            container.innerHTML += `
+                <a class="game-card" href="#" onclick="openGame('${game.url}'); return false;">
+                    <div class="game-icon">${game.icon}</div>
+                    <div class="game-info">
+                        <div class="game-title">${game.title}</div>
+                        <div class="game-meta">
+                            <span class="badge">MOBİL</span>
+                            ⭐ ${game.rating}
+                        </div>
+                    </div>
+                    <div class="arrow">➜</div>
+                </a>
+            `;
+        });
 
-            <div class="game-info">
-                <div class="game-title">${game.title}</div>
-
-                <div class="game-meta">
-                    <span class="badge">MOBİL</span>
-                    ⭐ ${game.rating}
-                </div>
-            </div>
-
-            <div class="arrow">➜</div>
-        </a>
-    `;
-});
-
-function openGame(url){
-    document.getElementById("game-frame").src = url;
-    document.getElementById("game-overlay").style.display = "flex";
-}
-
-function closeGame(){
-    document.getElementById("game-overlay").style.display = "none";
-    document.getElementById("game-frame").src = "";
-}
-
-function playRandomGame(){
-    const random = games[Math.floor(Math.random() * games.length)];
-    openGame(random.url);
-}
-
-const music = document.getElementById("bg-music");
-const musicBtn = document.getElementById("music-btn");
-
-async function toggleMusic(){
-    try{
-        if(music.paused){
-            await music.play();
-            musicBtn.innerText = "⏸️ Müziği Durdur";
-        }else{
-            music.pause();
-            musicBtn.innerText = "🎵 Müziği Aç";
+        function openGame(url){
+            document.getElementById("game-frame").src = url;
+            document.getElementById("game-overlay").style.display = "flex";
         }
-    }catch{
-        alert("Müzik için önce sayfaya dokun.");
-    }
-}
-</script>
-```html
-<footer>
-    <div class="social-links" style="
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        gap:20px;
-        flex-wrap:wrap;
-        margin-bottom:12px;
-    ">
 
-        <a href="https://www.instagram.com/frawn_logo?igsh=MTV3dnBnd2RzcDNiZg=="
-           target="_blank"
-           style="color:#FF6B35; text-decoration:none; font-weight:600;">
-            📸 Frawn_Logo
-        </a>
+        function closeGame(){
+            document.getElementById("game-overlay").style.display = "none";
+            document.getElementById("game-frame").src = "";
+        }
 
-        <a href="https://www.instagram.com/xeltrixgo?igsh=MWN2ZHpraHpkOXVpYQ=="
-           target="_blank"
-           style="color:#FF6B35; text-decoration:none; font-weight:600;">
-            📸 Xeltrixgo
-        </a>
+        function playRandomGame(){
+            const random = games[Math.floor(Math.random() * games.length)];
+            openGame(random.url);
+        }
 
-    </div>
+        const music = document.getElementById("bg-music");
+        const musicBtn = document.getElementById("music-btn");
 
-    <p>© 2026 Frawn & Xeltrixgo - Tüm Hakları Saklıdır.</p>
-
-    <p style="font-size:10px; margin-top:5px; color:#BBB;">
-        Gizli Sürpriz Yumurta: Mobilde her şey daha akıcı!
-    </p>
-</footer>
-```
-
+        async function toggleMusic(){
+            try{
+                if(music.paused){
+                    await music.play();
+                    musicBtn.innerText = "⏸️ Müziği Durdur";
+                }else{
+                    music.pause();
+                    musicBtn.innerText = "🎵 Müziği Aç";
+                }
+            }catch(err){
+                alert("Müzik çalabilmek için önce sayfaya herhangi bir yere dokunun.");
+            }
+        }
+    </script>
 </body>
 </html>
