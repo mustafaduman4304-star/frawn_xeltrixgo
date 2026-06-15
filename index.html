@@ -33,7 +33,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* En Üst Logo Alanı - İki Yeni Ana Logo */
+        /* En Üst Ana Logolar */
         .header-banner {
             display: flex;
             justify-content: center;
@@ -54,7 +54,6 @@
             border: 1px solid var(--play-border);
         }
 
-        /* Play Store Arama Çubuğu */
         .search-bar-mock {
             max-width: 600px;
             margin: 20px auto;
@@ -69,7 +68,6 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
-        /* Başlık Alanı */
         .store-section-title {
             max-width: 1000px;
             margin: 25px auto 10px auto;
@@ -88,7 +86,6 @@
             font-weight: 700;
         }
 
-        /* Grid Sistemi */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
@@ -98,7 +95,6 @@
             padding: 0 20px;
         }
 
-        /* Uygulama Kartı Tasarımı */
         .app-card {
             background: none;
             display: flex;
@@ -113,12 +109,11 @@
             transform: scale(0.96);
         }
 
-        /* Standart Play Store İkon Yapısı */
         .app-icon-container {
             width: 100%;
             aspect-ratio: 1/1;
             background-color: var(--play-card);
-            border-radius: 22%; /* Play Store ikon standardı */
+            border-radius: 22%;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             margin-bottom: 10px;
@@ -132,10 +127,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .app-details {
-            padding: 0 4px;
         }
 
         .app-title {
@@ -172,14 +163,8 @@
             width: 100%;
             cursor: pointer;
             text-align: center;
-            transition: background-color 0.2s;
         }
 
-        .app-card:hover .install-btn {
-            background-color: var(--play-green-hover);
-        }
-
-        /* Tam Ekran Oyun Overlay Sistemi */
         #game-overlay {
             display: none;
             position: fixed;
@@ -215,7 +200,6 @@
             border-radius: 14px;
             font-weight: 700;
             cursor: pointer;
-            font-size: 13px;
         }
 
         #game-frame {
@@ -225,7 +209,6 @@
             background-color: #000;
         }
 
-        /* Sabit Alt Müzik Çalar Paneli */
         .music-widget {
             position: fixed;
             bottom: 20px;
@@ -244,7 +227,6 @@
         .music-info {
             font-size: 12px;
             color: var(--play-text);
-            font-weight: 500;
         }
 
         .music-ctrl-btn {
@@ -258,7 +240,6 @@
             cursor: pointer;
         }
 
-        /* Mobil Duyarlılık Ayarları */
         @media (max-width: 480px) {
             .apps-grid {
                 grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
@@ -267,9 +248,6 @@
             }
             .header-banner img {
                 height: 65px;
-            }
-            .app-title {
-                font-size: 13px;
             }
         }
     </style>
@@ -281,24 +259,22 @@
     </audio>
 
     <header class="header-banner">
-        <img src="technowizard_logo.png" alt="Technowizard Software Engineering">
-        <img src="frawn_logo.png" alt="Frawn Growth Logo">
+        <img src="WhatsApp Image 2026-06-15 at 14.47.55.jpeg" alt="Ana Logo 1">
+        <img src="WhatsApp Image 2026-06-15 at 16.15.02.jpeg" alt="Ana Logo 2">
     </header>
 
-    <div class="search-bar-mock">
-        🔍 Oyun ve uygulama arayın...
-    </div>
+    <div class="search-bar-mock">🔍 Oyun ve uygulama arayın...</div>
 
     <div class="store-section-title">
         <div>Önerilen Oyunlar</div>
-        <div class="store-subtitle">%100 MOBİL UYUMLU</div>
+        <div class="store-subtitle">MOBİL UYUMLU</div>
     </div>
 
     <main class="apps-grid">
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17', 'Art of Escape 1')">
             <div class="app-icon-container">
-                <img src="art_of_escape_1_logo.png" alt="Art of Escape 1">
+                <img src="NEON (2).png" alt="Art of Escape 1">
             </div>
             <div class="app-details">
                 <div class="app-title">Art of Escape 1</div>
@@ -309,7 +285,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4', 'Neon Racer')">
             <div class="app-icon-container">
-                <img src="neon_racer_logo.png" alt="Neon Racer">
+                <img src="NEON (3).png" alt="Neon Racer">
             </div>
             <div class="app-details">
                 <div class="app-title">Neon Racer</div>
@@ -320,7 +296,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71', 'BALL TO HOLD')">
             <div class="app-icon-container">
-                <img src="ball_to_hold_logo.png" alt="BALL TO HOLD">
+                <img src="NEON (5).png" alt="BALL TO HOLD">
             </div>
             <div class="app-details">
                 <div class="app-title">BALL TO HOLD</div>
@@ -331,7 +307,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl', 'Kaçış Oyunu')">
             <div class="app-icon-container">
-                <img src="kacis_oyunu_logo.png" alt="Kaçış Oyunu">
+                <img src="NEON (6).png" alt="Kaçış Oyunu">
             </div>
             <div class="app-details">
                 <div class="app-title">Kaçış Oyunu</div>
@@ -342,7 +318,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx', 'Neon Dino')">
             <div class="app-icon-container">
-                <img src="neon_dino_logo.png" alt="Neon Dino">
+                <img src="NEON (8).png" alt="Neon Dino">
             </div>
             <div class="app-details">
                 <div class="app-title">Neon Dino</div>
@@ -353,7 +329,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4', 'RED BALL')">
             <div class="app-icon-container">
-                <img src="red_ball_logo.png" alt="RED BALL">
+                <img src="flappy forest (1).png" alt="RED BALL">
             </div>
             <div class="app-details">
                 <div class="app-title">RED BALL</div>
@@ -364,7 +340,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP', 'Sepeti Yakala')">
             <div class="app-icon-container">
-                <img src="sepeti_yakala_logo.png" alt="Sepeti Yakala">
+                <img src="flappy forest (2).jpg" alt="Sepeti Yakala">
             </div>
             <div class="app-details">
                 <div class="app-title">Sepeti Yakala</div>
@@ -375,7 +351,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/pDgsw-U2s', 'Flappy Forest')">
             <div class="app-icon-container">
-                <img src="flappy_forest_logo.png" alt="Flappy Forest">
+                <img src="flappy forest.png" alt="Flappy Forest">
             </div>
             <div class="app-details">
                 <div class="app-title">Flappy Forest</div>
@@ -386,7 +362,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/GG6iHi5Ar', 'Tıklama Yarışı')">
             <div class="app-icon-container">
-                <img src="tiklama_yarisi_logo.png" alt="Tıklama Yarışı">
+                <img src="flappy forest.png" alt="Tıklama Yarışı">
             </div>
             <div class="app-details">
                 <div class="app-title">Tıklama Yarışı</div>
@@ -397,7 +373,7 @@
 
         <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/9vuYB_6U-', 'Uzay Savaşı')">
             <div class="app-icon-container">
-                <img src="uzay_savasi_logo.png" alt="Uzay Savaşı">
+                <img src="flappy forest (1).png" alt="Uzay Savaşı">
             </div>
             <div class="app-details">
                 <div class="app-title">Uzay Savaşı</div>
@@ -422,13 +398,12 @@
     </div>
 
     <script>
-        // Müzik Oynatma ve Yönetme Mantığı
         const backgroundAudio = document.getElementById('store-bg-music');
         const musicButton = document.getElementById('music-btn');
 
         function controlMusic() {
             if (backgroundAudio.paused) {
-                backgroundAudio.play().catch(err => console.log("İlk dokunuş gerekiyor."));
+                backgroundAudio.play().catch(err => console.log("Etkileşim gerekiyor."));
                 musicButton.innerText = "KAPAT";
                 musicButton.style.backgroundColor = "#e32636";
                 musicButton.style.color = "#fff";
@@ -440,7 +415,6 @@
             }
         }
 
-        // Oyun Katmanı (Iframe) Açma / Kapatma İşlemleri
         function launchGame(link, title) {
             document.getElementById('current-game-title').innerText = title;
             document.getElementById('game-frame').src = link;
