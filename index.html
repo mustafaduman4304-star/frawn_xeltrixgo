@@ -38,7 +38,6 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-bottom: 3px solid var(--primary-orange);
-            position: relative;
         }
 
         .logo-container {
@@ -48,16 +47,6 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 10px;
-        }
-
-        /* Buraya kendi yüklediğin FRAWN logosunun linkini gelecekte koyabilirsin */
-        .main-logo {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 3px solid var(--primary-orange);
-            background-color: #fff;
-            object-fit: cover;
         }
 
         header h1 {
@@ -73,13 +62,12 @@
             margin-top: 4px;
         }
 
-        /* Kontrol Paneli (Müzik ve Rastgele Oyun) */
+        /* Kontrol Paneli (Rastgele Oyun) */
         .control-panel {
             max-width: 600px;
             margin: 20px auto;
             padding: 0 15px;
             display: flex;
-            gap: 10px;
         }
 
         .btn {
@@ -105,11 +93,6 @@
             background-color: var(--dark-orange);
         }
 
-        .btn-music {
-            background-color: #4A4E69;
-            box-shadow: 0 4px 6px rgba(74, 78, 105, 0.2);
-        }
-
         /* Play Store Tarzı Teker Teker Oyun Listesi */
         .games-list {
             max-width: 600px;
@@ -128,8 +111,9 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             text-decoration: none;
             color: inherit;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
             border: 1px solid rgba(0,0,0,0.03);
+            cursor: pointer;
         }
 
         .game-card:active {
@@ -152,7 +136,7 @@
             font-weight: bold;
         }
 
-        /* Farklı oyunlara farklı renk ikon kutuları */
+        /* Renkli kart arka planları */
         .game-card:nth-child(2n) .game-icon-box { background-color: #E29578; color: white; }
         .game-card:nth-child(3n) .game-icon-box { background-color: #DDA15E; color: white; }
 
@@ -191,7 +175,7 @@
             padding-right: 5px;
         }
 
-        /* Şikayet ve Geri Bildirim Bölümü */
+        /* Şikayet Bölümü */
         .feedback-section {
             max-width: 600px;
             margin: 30px auto;
@@ -249,7 +233,7 @@
             margin: 0 10px;
         }
 
-        /* Gizli P5.JS Oyun Penceresi (Aynı sayfada açılması için) */
+        /* Tam Ekran Oyun Penceresi */
         #game-overlay {
             display: none;
             position: fixed;
@@ -282,154 +266,118 @@
 </head>
 <body>
 
-    <audio id="bg-music" loop src="https://actions.google.com/sounds/v1/science_fiction/retro_game_loop.ogg"></audio>
-
     <header>
         <div class="logo-container">
             <div class="game-icon-box" style="width:80px; height:80px; font-size:35px; border-radius:50%;">F</div>
             <h1>Frawn & Xeltrixgo Games</h1>
         </div>
-        <p>Play Store Tarzı Mobil Uyumlu Oyun Portalı</p>
+        <p>Mobil Uyumlu Oyun Platformu</p>
     </header>
 
     <div class="control-panel">
-        <button class="btn btn-music" onclick="toggleMusic()" id="music-btn">🎵 Müziği Aç</button>
         <button class="btn" onclick="playRandomGame()">🎲 Rastgele Oyun Seç</button>
     </div>
 
     <main class="games-list">
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17')">
             <div class="game-icon-box">📱</div>
             <div class="game-info">
                 <div class="game-title">MOBİL ÖZEL OYUN</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.9</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.9</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4')">
             <div class="game-icon-box">🏃</div>
             <div class="game-info">
                 <div class="game-title">Art of Escape 1</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.7</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.8</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71')">
             <div class="game-icon-box">🏎️</div>
             <div class="game-info">
                 <div class="game-title">Neon Racer</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.8</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.7</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/8J78fQT0k')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/8J78fQT0k')">
             <div class="game-icon-box">⚽</div>
             <div class="game-info">
                 <div class="game-title">BALL TO HOLD</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.5</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.6</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/l7Tvi76J1')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/l7Tvi76J1')">
             <div class="game-icon-box">❤️</div>
             <div class="game-info">
-                <div class="game-title">UNDERTALE CLONE</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 5.0</span>
-                </div>
+                <div class="game-title">UNDERTALE</div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 5.0</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0')">
             <div class="game-icon-box">🗝️</div>
             <div class="game-info">
                 <div class="game-title">Zindandan Kaçış</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.6</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.9</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">
             <div class="game-icon-box">🍬</div>
             <div class="game-info">
                 <div class="game-title">Şeker Oyunu</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.4</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.5</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx')">
             <div class="game-icon-box">🚪</div>
             <div class="game-info">
                 <div class="game-title">Kaçış Oyunu</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.6</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.6</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4')">
             <div class="game-icon-box">🦖</div>
             <div class="game-info">
                 <div class="game-title">Neon Dino</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.7</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.8</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP')">
             <div class="game-icon-box">🔴</div>
             <div class="game-info">
                 <div class="game-title">Red Ball</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.9</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.9</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
-        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">
+        <div class="game-card" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">
             <div class="game-icon-box">🧺</div>
             <div class="game-info">
                 <div class="game-title">Sepeti Yakala</div>
-                <div class="game-meta">
-                    <span class="badge-mobile">MOBİL</span>
-                    <span>⭐ 4.5</span>
-                </div>
+                <div class="game-meta"><span class="badge-mobile">MOBİL</span> <span>⭐ 4.7</span></div>
             </div>
             <div class="play-btn-arrow">➔</div>
-        </a>
+        </div>
 
     </main>
 
@@ -446,7 +394,6 @@
             <a href="https://instagram.com/frawn_xeltrixgo" target="_blank">📸 Frawn_Xeltrixgo Instagram</a>
         </div>
         <p>© 2026 Frawn & Xeltrixgo - Tüm Hakları Saklıdır.</p>
-        <p style="font-size: 10px; margin-top: 5px; color: #BBB;">Gizli Sürpriz Yumurta: Mobilde her şey daha akıcı!</p>
     </footer>
 
     <div id="game-overlay">
@@ -455,7 +402,6 @@
     </div>
 
     <script>
-        // Tüm Oyun Linklerinin Listesi (Rastgele seçim için)
         const gameUrls = [
             'https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17',
             'https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4',
@@ -469,36 +415,19 @@
             'https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP'
         ];
 
-        // Aynı Sayfada Oyun Açma Fonksiyonu
         function openGame(url) {
             document.getElementById('game-frame').src = url;
             document.getElementById('game-overlay').style.display = 'flex';
         }
 
-        // Oyundan Çıkış
         function closeGame() {
             document.getElementById('game-overlay').style.display = 'none';
             document.getElementById('game-frame').src = '';
         }
 
-        // Rastgele Oyun Seçici
         function playRandomGame() {
             const randomIndex = Math.floor(Math.random() * gameUrls.length);
             openGame(gameUrls[randomIndex]);
-        }
-
-        // Müzik Aç/Kapat Kontrolü
-        const music = document.getElementById('bg-music');
-        const musicBtn = document.getElementById('music-btn');
-
-        function toggleMusic() {
-            if (music.paused) {
-                music.play().catch(e => console.log("Müzik başlatılamadı, kullanıcı etkileşimi gerekiyor."));
-                musicBtn.innerText = "⏸️ Müziği Durdur";
-            } else {
-                music.pause();
-                musicBtn.innerText = "🎵 Müziği Aç";
-            }
         }
     </script>
 </body>
