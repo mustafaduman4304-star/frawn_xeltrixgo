@@ -4,43 +4,411 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frawn Play Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --play-bg: #1f1f1f; --play-green: #00a173; }
-        body { background-color: var(--play-bg); color: #e3e3e3; font-family: sans-serif; padding: 20px; text-align: center; }
-        .header { font-size: 40px; margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
-        .card { background: #2d2d2d; padding: 15px; border-radius: 20px; transition: 0.2s; }
-        .emoji { font-size: 60px; margin: 10px 0; }
-        button { background: var(--play-green); border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; width: 100%; }
-        #modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; }
-        iframe { width: 100%; height: 90vh; border: none; }
+        :root {
+            --play-bg: #1f1f1f;
+            --play-card: #2d2d2d;
+            --play-text: #e3e3e3;
+            --play-muted: #8e918f;
+            --play-green: #00a173;
+            --play-green-hover: #00b884;
+            --play-border: #3c4043;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--play-bg);
+            color: var(--play-text);
+            padding-bottom: 100px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* En Üst Ana Logolar (Emoji Versiyonu) */
+        .header-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            padding: 20px;
+            background-color: #181818;
+            border-bottom: 1px solid var(--play-border);
+            flex-wrap: wrap;
+        }
+
+        .header-logo-emoji {
+            font-size: 40px;
+            padding: 10px 20px;
+            background-color: var(--play-card);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            border: 1px solid var(--play-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-bar-mock {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: var(--play-card);
+            padding: 12px 20px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            color: var(--play-muted);
+            font-size: 15px;
+            border: 1px solid var(--play-border);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .store-section-title {
+            max-width: 1000px;
+            margin: 25px auto 10px auto;
+            padding: 0 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .store-subtitle {
+            font-size: 13px;
+            color: var(--play-green);
+            font-weight: 700;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .app-card {
+            background: none;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+        }
+
+        .app-card:active {
+            transform: scale(0.96);
+        }
+
+        /* Emoji İkon Kutusu */
+        .app-icon-container {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background-color: var(--play-card);
+            border-radius: 22%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px; /* Emojilerin boyutu */
+            user-select: none;
+        }
+
+        .app-title {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--play-text);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-bottom: 2px;
+        }
+
+        .app-rating {
+            font-size: 12px;
+            color: var(--play-muted);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            margin-bottom: 6px;
+        }
+
+        .app-rating span {
+            color: #ffb300;
+        }
+
+        .install-btn {
+            background-color: var(--play-green);
+            color: #121212;
+            border: none;
+            padding: 6px 0;
+            border-radius: 18px;
+            font-size: 12px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        #game-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            z-index: 10000;
+            flex-direction: column;
+        }
+
+        .overlay-header {
+            background-color: #1f1f1f;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--play-border);
+        }
+
+        .overlay-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .close-btn {
+            background-color: #e32636;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        #game-frame {
+            width: 100%;
+            flex-grow: 1;
+            border: none;
+            background-color: #000;
+        }
+
+        .music-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--play-card);
+            border: 1px solid var(--play-border);
+            padding: 10px 18px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 999;
+        }
+
+        .music-info {
+            font-size: 12px;
+            color: var(--play-text);
+        }
+
+        .music-ctrl-btn {
+            background-color: var(--play-green);
+            color: #000;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        @media (max-width: 480px) {
+            .apps-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 14px;
+                padding: 0 12px;
+            }
+            .header-logo-emoji {
+                font-size: 30px;
+                padding: 8px 16px;
+            }
+            .app-icon-container {
+                font-size: 40px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div class="header">🤖 Frawn Store 🚀</div>
+    <audio id="store-bg-music" loop>
+        <source src="muzik.mp3" type="audio/mpeg">
+    </audio>
 
-    <div class="grid">
-        <div class="card"><div class="emoji">🐂</div><h3>Art of Escape</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17')">OYNA</button></div>
-        <div class="card"><div class="emoji">🏎️</div><h3>Neon Racer</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4')">OYNA</button></div>
-        <div class="card"><div class="emoji">⚽</div><h3>Ball to Hold</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71')">OYNA</button></div>
-        <div class="card"><div class="emoji">🐔</div><h3>Kaçış</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">OYNA</button></div>
-        <div class="card"><div class="emoji">🦖</div><h3>Neon Dino</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx')">OYNA</button></div>
-        <div class="card"><div class="emoji">🔴</div><h3>Red Ball</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4')">OYNA</button></div>
-        <div class="card"><div class="emoji">🧺</div><h3>Sepeti Yakala</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP')">OYNA</button></div>
-        <div class="card"><div class="emoji">🐦</div><h3>Flappy Forest</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/pDgsw-U2s')">OYNA</button></div>
-        <div class="card"><div class="emoji">👆</div><h3>Tıklama</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/GG6iHi5Ar')">OYNA</button></div>
-        <div class="card"><div class="emoji">🛸</div><h3>Uzay</h3><button onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/9vuYB_6U-')">OYNA</button></div>
+    <header class="header-banner">
+        <div class="header-logo-emoji">🎮</div>
+        <div class="header-logo-emoji">🚀</div>
+    </header>
+
+    <div class="search-bar-mock">🔍 Oyun ve uygulama arayın...</div>
+
+    <div class="store-section-title">
+        <div>Önerilen Oyunlar</div>
+        <div class="store-subtitle">MOBİL UYUMLU</div>
     </div>
 
-    <div id="modal">
-        <button onclick="closeGame()" style="background:#e32636; width:100px; margin:10px;">KAPAT</button>
-        <iframe id="frame"></iframe>
+    <main class="apps-grid">
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17', 'Art of Escape 1')">
+            <div class="app-icon-container">🏃‍♂️</div>
+            <div class="app-details">
+                <div class="app-title">Art of Escape 1</div>
+                <div class="app-rating"><span>★</span> 4.9</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4', 'Neon Racer')">
+            <div class="app-icon-container">🏎️</div>
+            <div class="app-details">
+                <div class="app-title">Neon Racer</div>
+                <div class="app-rating"><span>★</span> 4.8</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71', 'BALL TO HOLD')">
+            <div class="app-icon-container">🔮</div>
+            <div class="app-details">
+                <div class="app-title">BALL TO HOLD</div>
+                <div class="app-rating"><span>★</span> 4.7</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl', 'Kaçış Oyunu')">
+            <div class="app-icon-container">🚪</div>
+            <div class="app-details">
+                <div class="app-title">Kaçış Oyunu</div>
+                <div class="app-rating"><span>★</span> 4.6</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx', 'Neon Dino')">
+            <div class="app-icon-container">🦖</div>
+            <div class="app-details">
+                <div class="app-title">Neon Dino</div>
+                <div class="app-rating"><span>★</span> 4.8</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4', 'RED BALL')">
+            <div class="app-icon-container">🔴</div>
+            <div class="app-details">
+                <div class="app-title">RED BALL</div>
+                <div class="app-rating"><span>★</span> 4.9</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP', 'Sepeti Yakala')">
+            <div class="app-icon-container">🧺</div>
+            <div class="app-details">
+                <div class="app-title">Sepeti Yakala</div>
+                <div class="app-rating"><span>★</span> 4.6</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/pDgsw-U2s', 'Flappy Forest')">
+            <div class="app-icon-container">🌳</div>
+            <div class="app-details">
+                <div class="app-title">Flappy Forest</div>
+                <div class="app-rating"><span>★</span> 4.7</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/GG6iHi5Ar', 'Tıklama Yarışı')">
+            <div class="app-icon-container">⚡</div>
+            <div class="app-details">
+                <div class="app-title">Tıklama Yarışı</div>
+                <div class="app-rating"><span>★</span> 4.5</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+        <div class="app-card" onclick="launchGame('https://editor.p5js.org/frawn_xeltrixgo123/full/9vuYB_6U-', 'Uzay Savaşı')">
+            <div class="app-icon-container">🛸</div>
+            <div class="app-details">
+                <div class="app-title">Uzay Savaşı</div>
+                <div class="app-rating"><span>★</span> 4.9</div>
+                <button class="install-btn">Oyna</button>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="music-widget">
+        <span class="music-info">🎵 Mağaza Müziği</span>
+        <button class="music-ctrl-btn" id="music-btn" onclick="controlMusic()">AÇ</button>
+    </div>
+
+    <div id="game-overlay">
+        <div class="overlay-header">
+            <div class="overlay-title" id="current-game-title">Oyun Yükleniyor...</div>
+            <button class="close-btn" onclick="terminateGame()">❌ Mağazaya Dön</button>
+        </div>
+        <iframe id="game-frame" src=""></iframe>
     </div>
 
     <script>
-        function openGame(l) { document.getElementById('frame').src = l; document.getElementById('modal').style.display = 'block'; }
-        function closeGame() { document.getElementById('modal').style.display = 'none'; document.getElementById('frame').src = ''; }
+        const backgroundAudio = document.getElementById('store-bg-music');
+        const musicButton = document.getElementById('music-btn');
+
+        function controlMusic() {
+            if (backgroundAudio.paused) {
+                backgroundAudio.play().catch(err => console.log("Etkileşim gerekiyor."));
+                musicButton.innerText = "KAPAT";
+                musicButton.style.backgroundColor = "#e32636";
+                musicButton.style.color = "#fff";
+            } else {
+                backgroundAudio.pause();
+                musicButton.innerText = "AÇ";
+                musicButton.style.backgroundColor = "var(--play-green)";
+                musicButton.style.color = "#000";
+            }
+        }
+
+        function launchGame(link, title) {
+            document.getElementById('current-game-title').innerText = title;
+            document.getElementById('game-frame').src = link;
+            document.getElementById('game-overlay').style.display = 'flex';
+        }
+
+        function terminateGame() {
+            document.getElementById('game-overlay').style.display = 'none';
+            document.getElementById('game-frame').src = '';
+        }
     </script>
 </body>
 </html>
