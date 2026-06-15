@@ -3,384 +3,503 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRAWN_XELTRIXGO | Ultra Premium Oyun Portfolyosu</title>
+    <title>Frawn & Xeltrixgo Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Geçişli, Altın Sarısı ve Stickman Efektli Premium Tema */
         :root {
-            --bg-main: #0a0f1d;
-            --bg-card: #121a2e;
-            --gold: #ffcc00;
-            --gold-glow: rgba(255, 204, 0, 0.35);
-            --text-white: #ffffff;
-            --text-gray: #94a3b8;
-        }
-
-        /* Sayfa Giriş Animasyonu */
-        @keyframes sayfaGiris {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stickman Havada Dalgalanma Animasyonu */
-        @keyframes stickmanFloat {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
+            --primary-orange: #FF6B35;
+            --dark-orange: #E04E1D;
+            --papyrus-bg: #F9F6F0;
+            --card-white: #FFFFFF;
+            --text-main: #2B2D42;
+            --text-muted: #6C757D;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-white);
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: var(--papyrus-bg);
+            color: var(--text-main);
+            padding-bottom: 60px;
         }
 
-        /* Başlık Alanı ve Giriş Efekti */
+        /* Üst Başlık ve Logo Alanı */
         header {
-            background: linear-gradient(185deg, #16223f 0%, var(--bg-main) 100%);
-            padding: 50px 20px 60px 20px;
+            background-color: var(--card-white);
+            padding: 20px;
             text-align: center;
-            border-bottom: 2px solid #1e2d4a;
-            animation: sayfaGiris 1s cubic-bezier(0.4, 0, 0.2, 1) both;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--primary-orange);
+            position: relative;
         }
 
-        /* Canlı CSS Animasyonlu Stickman */
-        .stickman-container {
-            display: inline-block;
-            margin-bottom: 15px;
-            animation: stickmanFloat 3s ease-in-out infinite;
-            cursor: pointer;
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
         }
 
-        .stickman-art {
-            font-size: 4rem;
-            filter: drop-shadow(0 0 10px var(--gold-glow));
-            transition: transform 0.3s ease, filter 0.3s ease;
-            user-select: none;
-        }
-
-        .stickman-container:hover .stickman-art {
-            transform: scale(1.15) rotate(5deg);
-            filter: drop-shadow(0 0 20px #ffcc00);
+        /* Buraya kendi yüklediğin FRAWN logosunun linkini gelecekte koyabilirsin */
+        .main-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-orange);
+            background-color: #fff;
+            object-fit: cover;
         }
 
         header h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-            text-shadow: 0 0 20px rgba(255, 204, 0, 0.2);
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            color: var(--primary-orange);
+            font-weight: 700;
         }
 
         header p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 30px;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
 
-        .gold-line {
-            width: 120px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        /* Ana Alan */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-            animation: sayfaGiris 1s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
-        }
-
-        /* Slayt Tarzı Yumuşak Izgara Yapısı */
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* Animasyonlu Premium Kartlar */
-        .game-card {
-            background-color: var(--bg-card);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #1e2d4a;
+        /* Kontrol Paneli (Müzik ve Rastgele Oyun) */
+        .control-panel {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px;
             display: flex;
-            flex-direction: column;
-            position: relative;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
-            
-            /* Kartların sırayla ve yumuşakça gelmesi için slayt animasyonu */
-            animation: sayfaGiris 1s cubic-bezier(0.4, 0, 0.2, 1) both;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                        border-color 0.4s ease, 
-                        box-shadow 0.4s ease;
-        }
-
-        /* Kartların Sırayla Gecikmeli Açılma Slayt Efekti */
-        .game-card:nth-child(1) { animation-delay: 0.2s; }
-        .game-card:nth-child(2) { animation-delay: 0.3s; }
-        .game-card:nth-child(3) { animation-delay: 0.4s; }
-        .game-card:nth-child(4) { animation-delay: 0.5s; }
-        .game-card:nth-child(5) { animation-delay: 0.6s; }
-        .game-card:nth-child(6) { animation-delay: 0.7s; }
-        .game-card:nth-child(7) { animation-delay: 0.8s; }
-        .game-card:nth-child(8) { animation-delay: 0.9s; }
-        .game-card:nth-child(9) { animation-delay: 1.0s; }
-        .game-card:nth-child(10) { animation-delay: 1.1s; }
-        .game-card:nth-child(11) { animation-delay: 1.2s; }
-
-        /* Slayt Hover (Üzerine Gelme) Efekti */
-        .game-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            border-color: var(--gold);
-            box-shadow: 0 15px 35px var(--gold-glow);
-        }
-
-        /* İkon Alanı */
-        .game-icon {
-            background: linear-gradient(135deg, #1b2644, #121a2e);
-            height: 140px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(255, 107, 53, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            border-bottom: 1px solid #1e2d4a;
-            transition: transform 0.4s ease;
+            gap: 8px;
         }
 
-        .game-card:hover .game-icon {
-            transform: scale(1.1);
+        .btn:active {
+            transform: scale(0.98);
+            background-color: var(--dark-orange);
         }
 
-        /* Kart Detayları */
-        .game-details {
-            padding: 25px;
+        .btn-music {
+            background-color: #4A4E69;
+            box-shadow: 0 4px 6px rgba(74, 78, 105, 0.2);
+        }
+
+        /* Play Store Tarzı Teker Teker Oyun Listesi */
+        .games-list {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px 15px;
+        }
+
+        .game-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 15px;
             display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .game-details h3 {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .game-card:hover .game-details h3 {
-            color: var(--gold);
-        }
-
-        .game-details p {
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        /* Lüks Altın Sarısı Başlat Butonu */
-        .btn-play {
-            display: block;
-            background: transparent;
-            color: var(--gold);
-            text-align: center;
-            padding: 12px;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             text-decoration: none;
-            font-weight: 700;
-            border-radius: 12px;
-            border: 2px solid var(--gold);
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(0,0,0,0.03);
         }
 
-        .game-card:hover .btn-play {
-            background: linear-gradient(135deg, #ffcc00, #b38f00);
-            color: #000000;
-            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+        .game-card:active {
+            transform: scale(0.98);
+            background-color: #FDFBF7;
         }
 
+        /* Oyun İkonu Alanı (Play Store Stili) */
+        .game-icon-box {
+            width: 65px;
+            height: 65px;
+            background-color: #FFE6DC;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary-orange);
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+
+        /* Farklı oyunlara farklı renk ikon kutuları */
+        .game-card:nth-child(2n) .game-icon-box { background-color: #E29578; color: white; }
+        .game-card:nth-child(3n) .game-icon-box { background-color: #DDA15E; color: white; }
+
+        .game-info {
+            flex-grow: 1;
+        }
+
+        .game-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .game-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-mobile {
+            background-color: #4CAF50;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .play-btn-arrow {
+            color: var(--primary-orange);
+            font-size: 20px;
+            font-weight: bold;
+            padding-right: 5px;
+        }
+
+        /* Şikayet ve Geri Bildirim Bölümü */
+        .feedback-section {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px 15px;
+        }
+
+        .feedback-card {
+            background-color: var(--card-white);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-top: 4px solid #4A4E69;
+        }
+
+        .feedback-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .feedback-card textarea {
+            width: 100%;
+            height: 80px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #DDD;
+            background-color: #FAFAFA;
+            resize: none;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .feedback-card textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        /* Sosyal Medya ve Alt Bilgi */
         footer {
             text-align: center;
-            padding: 50px 20px;
-            background-color: #060a14;
-            color: var(--text-gray);
-            font-size: 0.9rem;
-            border-top: 1px solid #1e2d4a;
-            margin-top: 60px;
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: var(--text-muted);
         }
 
-        footer span {
-            color: var(--gold);
+        .social-links {
+            margin-bottom: 12px;
+        }
+
+        .social-links a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        /* Gizli P5.JS Oyun Penceresi (Aynı sayfada açılması için) */
+        #game-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 9999;
+            flex-direction: column;
+        }
+
+        #game-frame {
+            width: 100%;
+            flex-grow: 1;
+            border: none;
+        }
+
+        .close-game-btn {
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
             font-weight: bold;
+            cursor: pointer;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <!-- Başlık Paneli + SÜZÜLEN STICKMAN -->
+    <audio id="bg-music" loop src="https://actions.google.com/sounds/v1/science_fiction/retro_game_loop.ogg"></audio>
+
     <header>
-        <div class="stickman-container" title="Siber Stickman">
-            <div class="stickman-art">🥷</div>
+        <div class="logo-container">
+            <div class="game-icon-box" style="width:80px; height:80px; font-size:35px; border-radius:50%;">F</div>
+            <h1>Frawn & Xeltrixgo Games</h1>
         </div>
-        <h1>FRAWN_XELTRIXGO</h1>
-        <p>Premium p5.js Oyun Koleksiyonu ve İnteraktif Deneyimler</p>
-        <div class="gold-line"></div>
+        <p>Play Store Tarzı Mobil Uyumlu Oyun Portalı</p>
     </header>
 
-    <div class="container">
-        <h2 class="section-title">Oyun Salonu</h2>
-        
-        <div class="games-grid">
-
-            <!-- YENİ OYUN 1: STICKMAN SAVAŞLARI -->
-            <div class="game-card" style="border-color: rgba(255, 204, 0, 0.5);">
-                <div class="game-icon">⚔️</div>
-                <div class="game-details">
-                    <h3>Stickman Savaşları</h3>
-                    <p>Çöp adamların amansız dövüş mekanikleriyle donatılmış, fizik tabanlı ve yüksek aksiyonlu hayatta kalma savaşı.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/wkisRvH5W" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- YENİ OYUN 2: NEON DINO -->
-            <div class="game-card" style="border-color: rgba(255, 204, 0, 0.5);">
-                <div class="game-icon">🦖</div>
-                <div class="game-details">
-                    <h3>Neon Dino</h3>
-                    <p>Klasik tarayıcı dinosunun göz alıcı neon ışıkları ve geliştirilmiş engellerle p5.js üzerinde yeniden doğuşu.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/MmSX5pccR" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- YENİ OYUN 3: RED BALL 4 OYUNU -->
-            <div class="game-card" style="border-color: rgba(255, 204, 0, 0.5);">
-                <div class="game-icon">🔴</div>
-                <div class="game-details">
-                    <h3>Red Ball 4 Oyunu</h3>
-                    <p>Zorlu bulmacalar, yuvarlanma fiziği ve canavarlarla mücadele ettiğin eğlenceli p5.js platform macerası.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 4 -->
-            <div class="game-card">
-                <div class="game-icon">🌍</div>
-                <div class="game-details">
-                    <h3>Global Survival</h3>
-                    <p>Gelişmiş dünya stratejisi, ülke yönetimi ve kaynak toplama mekaniklerine sahip derinlikli hayatta kalma oyunu.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 5 -->
-            <div class="game-card">
-                <div class="game-icon">🎒</div>
-                <div class="game-details">
-                    <h3>Kopya Çekme Simülatörü</h3>
-                    <p>Öğretmenlerin yapay zeka hareket mantığından sıyrılıp sınıfta gizlice yüksek skor yapmaya çalıştığın heyecanlı simülasyon.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 6 -->
-            <div class="game-card">
-                <div class="game-icon">👑</div>
-                <div class="game-details">
-                    <h3>Kule Savunması</h3>
-                    <p>Üç kuleli kart yerleştirme sistemi ve dinamik asker yönlendirmeleri içeren stratejik kule koruma oyunu.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 7 -->
-            <div class="game-card">
-                <div class="game-icon">👾</div>
-                <div class="game-details">
-                    <h3>Undertale Evreni</h3>
-                    <p>Diyalog kutuları, özel savaş mekanikleri ve p5.js canvas yapısıyla baştan modellenmiş RPG prototipi.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/mfzcLsFnu" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 8 -->
-            <div class="game-card">
-                <div class="game-icon">💎</div>
-                <div class="game-details">
-                    <h3>Macera Dünyası</h3>
-                    <p>Karakterini yönlendirerek engelleri aştığın ve gizli hazineleri topladığın akıcı platform deneyimi.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/pDwjQGDRK" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 9 -->
-            <div class="game-card">
-                <div class="game-icon">🔥</div>
-                <div class="game-details">
-                    <h3>Refleks Arenası</h3>
-                    <p>Hızla üzerinize gelen elementlerden kaçarak hayatta kalma sürenizi ve rekorunuzu geliştirdiğiniz arcade modu.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/mbCbOR352" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 10 -->
-            <div class="game-card">
-                <div class="game-icon">⚡</div>
-                <div class="game-details">
-                    <h3>Sonsuz Döngü</h3>
-                    <p>Matematiksel kod algoritmalarıyla şekillenen, görsel efektleri yüksek ve eğlenceli p5.js projesi.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/ldSGZ_IXG" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-            <!-- OYUN 11 -->
-            <div class="game-card">
-                <div class="game-icon">🏆</div>
-                <div class="game-details">
-                    <h3>FRAWN Başyapıtı</h3>
-                    <p>En yüksek zorluk seviyesine ve 500+ seviye mantığına sahip, kodlama becerilerinin zirve noktası.</p>
-                    <a href="https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71" target="_blank" class="btn-play">TAM EKRAN OYNA</a>
-                </div>
-            </div>
-
-        </div>
+    <div class="control-panel">
+        <button class="btn btn-music" onclick="toggleMusic()" id="music-btn">🎵 Müziği Aç</button>
+        <button class="btn" onclick="playRandomGame()">🎲 Rastgele Oyun Seç</button>
     </div>
 
-    <!-- Sayfa Altı Bilgisi -->
+    <main class="games-list">
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17')">
+            <div class="game-icon-box">📱</div>
+            <div class="game-info">
+                <div class="game-title">MOBİL ÖZEL OYUN</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.9</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4')">
+            <div class="game-icon-box">🏃</div>
+            <div class="game-info">
+                <div class="game-title">Art of Escape 1</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.7</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71')">
+            <div class="game-icon-box">🏎️</div>
+            <div class="game-info">
+                <div class="game-title">Neon Racer</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.8</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/8J78fQT0k')">
+            <div class="game-icon-box">⚽</div>
+            <div class="game-info">
+                <div class="game-title">BALL TO HOLD</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.5</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/l7Tvi76J1')">
+            <div class="game-icon-box">❤️</div>
+            <div class="game-info">
+                <div class="game-title">UNDERTALE CLONE</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 5.0</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0')">
+            <div class="game-icon-box">🗝️</div>
+            <div class="game-info">
+                <div class="game-title">Zindandan Kaçış</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.6</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">
+            <div class="game-icon-box">🍬</div>
+            <div class="game-info">
+                <div class="game-title">Şeker Oyunu</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.4</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx')">
+            <div class="game-icon-box">🚪</div>
+            <div class="game-info">
+                <div class="game-title">Kaçış Oyunu</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.6</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4')">
+            <div class="game-icon-box">🦖</div>
+            <div class="game-info">
+                <div class="game-title">Neon Dino</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.7</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP')">
+            <div class="game-icon-box">🔴</div>
+            <div class="game-info">
+                <div class="game-title">Red Ball</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.9</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+        <a class="game-card" href="#" onclick="openGame('https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl')">
+            <div class="game-icon-box">🧺</div>
+            <div class="game-info">
+                <div class="game-title">Sepeti Yakala</div>
+                <div class="game-meta">
+                    <span class="badge-mobile">MOBİL</span>
+                    <span>⭐ 4.5</span>
+                </div>
+            </div>
+            <div class="play-btn-arrow">➔</div>
+        </a>
+
+    </main>
+
+    <section class="feedback-section">
+        <div class="feedback-card">
+            <h3>⚠️ Şikayet & Hata Bildirimi</h3>
+            <textarea placeholder="Oyunlarda bulduğunuz bir hatayı veya şikayeti buraya yazın..."></textarea>
+            <button class="btn" style="background-color: #4A4E69;" onclick="alert('Geri bildiriminiz Frawn\'a iletildi!')">Gönder</button>
+        </div>
+    </section>
+
     <footer>
-        <p>Geliştirici: <span>FRAWN_XELTRIXGO</span> &copy; 2026</p>
+        <div class="social-links">
+            <a href="https://instagram.com/frawn_xeltrixgo" target="_blank">📸 Frawn_Xeltrixgo Instagram</a>
+        </div>
+        <p>© 2026 Frawn & Xeltrixgo - Tüm Hakları Saklıdır.</p>
+        <p style="font-size: 10px; margin-top: 5px; color: #BBB;">Gizli Sürpriz Yumurta: Mobilde her şey daha akıcı!</p>
     </footer>
 
+    <div id="game-overlay">
+        <button class="close-game-btn" onclick="closeGame()">❌ Oyundan Çık / Ana Sayfaya Dön</button>
+        <iframe id="game-frame" src=""></iframe>
+    </div>
+
+    <script>
+        // Tüm Oyun Linklerinin Listesi (Rastgele seçim için)
+        const gameUrls = [
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/h8FC7_B17',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/iroplnYi4',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/01I91EN71',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/8J78fQT0k',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/l7Tvi76J1',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/nAhtiEld0',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/lmOp0nLPl',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/vcVT5LXKx',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/Pndgpq8Z4',
+            'https://editor.p5js.org/frawn_xeltrixgo123/full/N9DH-5wMP'
+        ];
+
+        // Aynı Sayfada Oyun Açma Fonksiyonu
+        function openGame(url) {
+            document.getElementById('game-frame').src = url;
+            document.getElementById('game-overlay').style.display = 'flex';
+        }
+
+        // Oyundan Çıkış
+        function closeGame() {
+            document.getElementById('game-overlay').style.display = 'none';
+            document.getElementById('game-frame').src = '';
+        }
+
+        // Rastgele Oyun Seçici
+        function playRandomGame() {
+            const randomIndex = Math.floor(Math.random() * gameUrls.length);
+            openGame(gameUrls[randomIndex]);
+        }
+
+        // Müzik Aç/Kapat Kontrolü
+        const music = document.getElementById('bg-music');
+        const musicBtn = document.getElementById('music-btn');
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play().catch(e => console.log("Müzik başlatılamadı, kullanıcı etkileşimi gerekiyor."));
+                musicBtn.innerText = "⏸️ Müziği Durdur";
+            } else {
+                music.pause();
+                musicBtn.innerText = "🎵 Müziği Aç";
+            }
+        }
+    </script>
 </body>
 </html>
