@@ -31,7 +31,6 @@
             padding-bottom: 60px;
         }
 
-        /* Üst Başlık ve Logo Alanı */
         header {
             background-color: var(--card-white);
             padding: 20px;
@@ -62,7 +61,6 @@
             margin-top: 4px;
         }
 
-        /* Kontrol Paneli (Rastgele Oyun) */
         .control-panel {
             max-width: 600px;
             margin: 20px auto;
@@ -93,7 +91,6 @@
             background-color: var(--dark-orange);
         }
 
-        /* Play Store Tarzı Teker Teker Oyun Listesi */
         .games-list {
             max-width: 600px;
             margin: 0 auto;
@@ -121,7 +118,6 @@
             background-color: #FDFBF7;
         }
 
-        /* Oyun İkonu Alanı (Play Store Stili) */
         .game-icon-box {
             width: 65px;
             height: 65px;
@@ -136,7 +132,6 @@
             font-weight: bold;
         }
 
-        /* Renkli kart arka planları */
         .game-card:nth-child(2n) .game-icon-box { background-color: #E29578; color: white; }
         .game-card:nth-child(3n) .game-icon-box { background-color: #DDA15E; color: white; }
 
@@ -175,7 +170,6 @@
             padding-right: 5px;
         }
 
-        /* Şikayet Bölümü */
         .feedback-section {
             max-width: 600px;
             margin: 30px auto;
@@ -213,13 +207,15 @@
             border-color: var(--primary-orange);
         }
 
-        /* Sosyal Medya ve Alt Bilgi */
         footer {
             text-align: center;
             padding: 20px;
             margin-top: 20px;
             font-size: 13px;
             color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .social-links {
@@ -233,7 +229,6 @@
             margin: 0 10px;
         }
 
-        /* Tam Ekran Oyun Penceresi */
         #game-overlay {
             display: none;
             position: fixed;
@@ -268,7 +263,7 @@
 
     <header>
         <div class="logo-container">
-            <div class="game-icon-box" style="width:80px; height:80px; font-size:35px; border-radius:50%;">F</div>
+            <img src="FRAWN_20260508_224014_0000.png" alt="Frawn Logo" style="width: 110px; height: 110px; border-radius: 50%; border: 3px solid var(--primary-orange); object-fit: cover; background-color: white;">
             <h1>Frawn & Xeltrixgo Games</h1>
         </div>
         <p>Mobil Uyumlu Oyun Platformu</p>
@@ -390,10 +385,16 @@
     </section>
 
     <footer>
+        <div style="margin-bottom: 15px;">
+             <img src="WhatsApp Image 2026-06-15 at 14.47.55.jpeg" alt="Xeltrixgo Logo" style="width: 150px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        </div>
+
         <div class="social-links">
             <a href="https://instagram.com/frawn_xeltrixgo" target="_blank">📸 Frawn_Xeltrixgo Instagram</a>
         </div>
         <p>© 2026 Frawn & Xeltrixgo - Tüm Hakları Saklıdır.</p>
+        
+        <p onclick="alert('Gizli Mesaj: Bumin Kaan da bu oyunları oynarken rekor kıracak!')" style="font-size: 10px; margin-top: 15px; color: #BBB; cursor: pointer;">🥚 Sürpriz yumurtayı bulmak için tıkla!</p>
     </footer>
 
     <div id="game-overlay">
