@@ -65,7 +65,6 @@
             color: var(--play-muted);
             font-size: 15px;
             border: 1px solid var(--play-border);
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
         .store-section-title {
@@ -259,8 +258,8 @@
     </audio>
 
     <header class="header-banner">
-        <img src="WhatsApp Image 2026-06-15 at 14.47.55.jpeg" alt="Ana Logo 1">
-        <img src="WhatsApp Image 2026-06-15 at 16.15.02.jpeg" alt="Ana Logo 2">
+        <img src="WhatsApp Image 2026-06-15 at 14.47.55.jpeg" alt="Frawn Banner Logo 1">
+        <img src="WhatsApp Image 2026-06-15 at 16.15.02.jpeg" alt="Frawn Banner Logo 2">
     </header>
 
     <div class="search-bar-mock">🔍 Oyun ve uygulama arayın...</div>
@@ -403,7 +402,7 @@
 
         function controlMusic() {
             if (backgroundAudio.paused) {
-                backgroundAudio.play().catch(err => console.log("Etkileşim gerekiyor."));
+                backgroundAudio.play().catch(err => console.log("Oynatma engellendi, etkileşim bekleniyor."));
                 musicButton.innerText = "KAPAT";
                 musicButton.style.backgroundColor = "#e32636";
                 musicButton.style.color = "#fff";
